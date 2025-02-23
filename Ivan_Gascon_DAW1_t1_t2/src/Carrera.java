@@ -41,25 +41,36 @@ public class Carrera {
             System.out.println("¿ "+coche2.getModelo()+" cuanto quieres acelerar?");
             velocidadAcelerar = scanner.nextInt();
             coche2.acelerar(coche2,velocidadAcelerar);
+            if(carrera.kmTotales* carrera.numVueltas<coche1.getKmRecorridos() || carrera.kmTotales* carrera.numVueltas<coche2.getKmRecorridos() )
+            {
+                if(coche1.getKmRecorridos()>coche2.getKmRecorridos()){
+                    carrera.setGanador(coche1);
+                    break;
+                }else{
+                    carrera.setGanador(coche2);
+                    break;
+                }
+            }
+
         }
-        if(carrera.kmTotales* carrera.numVueltas==coche1.getKmRecorridos() || carrera.kmTotales* carrera.numVueltas==coche2.getKmRecorridos() )
+        if(carrera.kmTotales* carrera.numVueltas<coche1.getKmRecorridos() || carrera.kmTotales* carrera.numVueltas<coche2.getKmRecorridos() )
         {
-            if(carrera.kmTotales* carrera.numVueltas==coche1.getKmRecorridos()){
+            if(coche1.getKmRecorridos()>coche2.getKmRecorridos()){
                 carrera.setGanador(coche1);
             }else{
                 carrera.setGanador(coche2);
             }
         }else{
-            while(carrera.kmTotales* carrera.numVueltas!=coche1.getKmRecorridos() || carrera.kmTotales* carrera.numVueltas!=coche2.getKmRecorridos() )
+            while(carrera.kmTotales* carrera.numVueltas>coche1.getKmRecorridos() || carrera.kmTotales* carrera.numVueltas>coche2.getKmRecorridos() )
             {
                 System.out.println("¿ "+coche1.getModelo()+" cuanto quieres acelerar?");
                 int velocidadAcelerar = scanner.nextInt();
                 coche1.acelerar(coche1,velocidadAcelerar);
                 System.out.println("¿ "+coche2.getModelo()+" cuanto quieres acelerar?");
-                velocidadAcelerar = scanner.nextInt();
+               velocidadAcelerar = scanner.nextInt();
                 coche2.acelerar(coche2,velocidadAcelerar);
             }
-            if(carrera.kmTotales* carrera.numVueltas==coche1.getKmRecorridos()){
+            if(coche1.getKmRecorridos()>coche2.getKmRecorridos()){
                 carrera.setGanador(coche1);
             }else{
                 carrera.setGanador(coche2);
@@ -73,6 +84,7 @@ public class Carrera {
         System.out.println(carrera.kmTotales);
         System.out.println(carrera.numVueltas);
     }
+
 
 
     public Coche getCoche1() {

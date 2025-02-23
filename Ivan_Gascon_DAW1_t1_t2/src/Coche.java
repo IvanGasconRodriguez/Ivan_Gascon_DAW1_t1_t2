@@ -12,7 +12,7 @@ public class Coche {
     private int velocidad;
     private int kmRecorridos;
 
-    public ArrayList<Coche> listaCoches = new ArrayList<>();
+    public static ArrayList<Coche> listaCoches = new ArrayList<>();
 
     public Coche() {
     }
@@ -40,15 +40,16 @@ public class Coche {
     public void registrarCoche(Coche coche){
         listaCoches.add(coche);
     }
-    public void mostrarLista(){
+    public static void mostrarLista(){
         for (Coche coche : listaCoches){
+            System.out.println("Coche: "+listaCoches.indexOf(coche));
             coche.mostrarDatosCoche(coche);
         }
     }
 
+
     public void acelerar(Coche coche , int velocidad){
-        System.out.println("Introduce la velocidad de aceleracion");
-        velocidad = scanner.nextInt();
+
         if(velocidad<10) {
             System.out.println("La velocidad de aceleracion minima es de 10km/h, se establecera a esta");
             velocidad=10;
